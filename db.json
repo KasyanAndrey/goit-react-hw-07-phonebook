@@ -1,0 +1,19 @@
+{
+  "contacts": [
+    {
+      "name": "Andrey Kasyan",
+      "number": "777-77-77",
+      "id": 1
+    },
+    {
+      "name": "Ваня",
+      "number": "999-99-99",
+      "id": 2
+    },
+    {
+      "name": "Andrey Kasyan",
+      "number": "777-77-77",
+      "id": 3
+    }
+  ]
+}

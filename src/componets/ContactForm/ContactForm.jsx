@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 
 import { useDispatch } from 'react-redux';
-import contactsActions from '../../redux/contacts/contacts-actions';
+import contactsOperations from '../../redux/contacts/contacts-operations';
 
 import s from './ContactForm.module.css';
 
@@ -18,7 +18,7 @@ export default function ContactForm() {
   const handleSabmit = event => {
     event.preventDefault();
 
-    dispatch(contactsActions.addContact({ name, number }));
+    dispatch(contactsOperations.addContact({ name, number }));
 
     setName('');
     setNumber('');
