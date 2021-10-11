@@ -25,7 +25,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "husky install",
-    "api-server": "json-server --port 4040 --delay 300 --watch db.json"
+    "api-server": "json-server --port 3030 --delay 300 --watch db.json"
   },
   "eslintConfig": {
     "extends": [

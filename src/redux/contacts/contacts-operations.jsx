@@ -11,26 +11,18 @@ import {
   deliteContactError,
 } from './contacts-actions';
 
-axios.defaults.baseURL = 'http://localhost:4040';
+axios.defaults.baseURL = 'http://localhost:3030';
 
-const fetchContacts = () => async dispatch => {
+export const fetchContacts = () => dispatch => {
   dispatch(fetchContactRequest());
 
-  try {
-    const { data } = await axios.get('/contacts');
-
-    dispatch(fetchContactSuccess(data));
-  } catch (error) {
-    dispatch(fetchContactError(error));
-  }
-
-  // axios
-  //   .get('/contacts')
-  //   .then(({ data }) => dispatch(fetchContactSuccess(data)))
-  //   .catch(error => dispatch(fetchContactError(error)));
+  axios
+    .get('/contacts')
+    .then(({ data }) => dispatch(fetchContactSuccess(data)))
+    .catch(error => dispatch(fetchContactError(error)));
 };
 
-const addContact =
+export const addContact =
   ({ name, number }) =>
   dispatch => {
     const contact = { name, number };
@@ -43,18 +35,11 @@ const addContact =
       .catch(error => dispatch(addContactError(error)));
   };
 
-const deliteContact = contactId => dispatch => {
+export const deliteContact = contactId => dispatch => {
   dispatch(deliteContactRequest());
 
   axios
     .delete(`/contacts/${contactId}`)
     .then(() => dispatch(deliteContactSuccess(contactId)))
     .catch(error => dispatch(deliteContactError(error)));
-};
-
-// eslint-disable-next-line import/no-anonymous-default-export
-export default {
-  fetchContacts,
-  addContact,
-  deliteContact,
 };
